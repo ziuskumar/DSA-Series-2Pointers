@@ -21,6 +21,9 @@ Input: people = [3,2,2,1], limit = 3
 Output: 3
 Explanation: 3 boats (1, 2), (2) and (3)
 
+
+ 
+
 ------------------------------------OPTIMAL---------------------------------
 class Solution {
 public:
@@ -53,29 +56,29 @@ public:
 
 
 --------------------------------BETTER---------------------------------------
-// class Solution {
-// public:
-//     int numRescueBoats(vector<int>& people, int limit) {
+class Solution {
+public:
+    int numRescueBoats(vector<int>& people, int limit) {
 
-//         int n = people.size();
-//         vector<bool> used(n,false);
-//         int boats = 0;
+        int n = people.size();
+        vector<bool> used(n,false);
+        int boats = 0;
 
-//         for(int i=0; i<n; i++){
-//             if(used[i]) continue;
+        for(int i=0; i<n; i++){
+            if(used[i]) continue;
 
-//             bool paired = false;
+            bool paired = false;
 
-//             for(int j=i+1; j<n; j++){
-//                 if(!used[j] && people[i] + people[j] <= limit){
-//                     used[j] = true;
-//                     paired = true;
-//                     break;
-//                 }
-//             }
-//             used[i] = true;
-//             boats++;
-//         }
-//         return boats;
-//     }
-// };
+            for(int j=i+1; j<n; j++){
+                if(!used[j] && people[i] + people[j] <= limit){
+                    used[j] = true;
+                    paired = true;
+                    break;
+                }
+            }
+            used[i] = true;
+            boats++;
+        }
+        return boats;
+    }
+};
